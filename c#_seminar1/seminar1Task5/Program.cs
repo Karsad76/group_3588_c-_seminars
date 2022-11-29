@@ -1,44 +1,31 @@
-﻿// Напишите программу, которая на вход принимает одно число (N), а на выходе показывает все целые числа в промежутке от -N до N.
-string? inputNumberLine = Console.ReadLine();
+﻿//Задача №5. Напишите программу, которая на вход принимает одно число (N), а на выходе показывает все целые числа в промежутке от -N до N.
 
-if(inputNumberLine != null) ;
-{
-    int inputNumber = int.Parse(inputNumberLine);
-    int startNumber = inputNumber * (-1);
-    string outLine = string.Empty;
-while (startNumber < inputNumber);
-    {
-    outLine = outLine + startNumber + ", ";
-    startNumber++;
-    }
-outLine = outLine + inputNumber;
-Console.WriteLine(outLine);
-}
+// Получаем данные с консоли
+string? inputLine=Console.ReadLine();
 
-//ПРИМЕР
-//Считываем данные с консоли
-string? inputLine = Console.ReadLine();
-
-//Проверяем, чтобы данные были не пустыми
+// Проверяем на пустую строку
 if(inputLine!=null)
 {
+    // Парсим в число
+    int inputNumber=int.Parse(inputLine);
+    
+    // Находим отрицательное значение
+    int startNumber=inputNumber*(-1);
 
-   //Парсим введенное число
-   int inputNumber = int.Parse(inputLine);
+    // Присваиваем результату пустую строку
+    string outLine=string.Empty;
 
-   int startNumber = inputNumber*(-1);
+    // Цикл по условию
+    while(startNumber<inputNumber)
+    {
+        // Собираем результат и двигаем счетчик цикла
+        outLine=outLine+startNumber+", ";
+        startNumber++;
+    }
 
-   //Выходное значение
-   string outLine = string.Empty;
+    // Добавляем к результату введенное число
+    outLine=outLine+inputNumber;
 
-   while(startNumber<inputNumber)
-   {
-      outLine = outLine + startNumber + ", ";
-      startNumber++;
-      //startNumber=startNumber+1;
-   }
-   outLine = outLine + inputNumber;
-
-   // Выводим данные в консоль 
-   Console.WriteLine(outLine);
+    // Вывод результата
+    Console.WriteLine(outLine);
 }

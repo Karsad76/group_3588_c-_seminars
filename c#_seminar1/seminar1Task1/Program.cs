@@ -1,20 +1,25 @@
-﻿//Считываем число с консоли
-string? num1Line = Console.ReadLine ();
-string? num2Line = Console.ReadLine ();
+﻿//Задача №1. Напишите программу, которая на вход принимает два числа и проверяет, является ли первое число квадратом второго.
 
-//Проверяем данные на пустую строку
-if(num1Line!=null&&num2Line!=null);
+// Получаем данные с консоли
+string? inputLine1=Console.ReadLine();
+string? inputLine2=Console.ReadLine();
+
+// Проверяем на пустые строки
+if(inputLine1!=null&&inputLine2!=null);
 {
-    //Парсим введенное число
-    int num1 = int.Parse(num1Line);
-    int num2 = int.Parse(num2Line);
+    // Парсим в числа
+    int num1 = int.Parse(inputLine1);
+    int num2 = int.Parse(inputLine2);
     
+    // Проверяем первое на квадрат второго
     if (num1 == num2*num2)
     {
+        // Вывод TRUE
         Console.WriteLine("Первое число квадрат второго");
     }
     else
     {
+        // Вывод FALSE
         Console.WriteLine("Первое число НЕ квадрат второго");
     }
 }

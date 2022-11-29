@@ -1,17 +1,19 @@
-﻿//Считываем число с консоли
-string? Num1Line = Console.ReadLine ();
+﻿// Задача №0. Напишите программу, которая на вход принимает число и выдаёт его квадрат
 
-//Проверяем данные на пустую строку
-if(Num1Line!=null);
+// Считываем число с консоли
+string? inputLine=Console.ReadLine();
+
+// Проверяем ввод на пустую строку
+if(inputLine!=null)
 {
-    //Парсим введенное число
-    int num1 = int.Parse(Num1Line);
-    
+    // Парсим строку в число
+    int inputNumber=int.Parse(inputLine);
+
     //Находим квадрат числа
-    int outResult = num1*num1;
-    
+    int outResult = inputNumber * inputNumber;
+
     //Вариант 2 int outResult = (int)Math.Pow(num1,2);
-    
+
     //Выводим результат
     Console.WriteLine(outResult);
 }

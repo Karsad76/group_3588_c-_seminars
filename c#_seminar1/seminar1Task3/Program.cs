@@ -1,4 +1,6 @@
-﻿//Считываем число с консоли
+﻿//Задача №3. Напишите программу, которая будет выдавать название дня недели по заданному номеру
+
+//Считываем число с консоли
 string num1Line = Console.ReadLine();
 
 //Проверяем данные на пустую строку
@@ -23,12 +25,16 @@ if (num1Line != null) ;
 }
 
 //Варианты
+
 //Считываем данные с консоли
 //string? inputLine = Console.ReadLine();
 //Проверяем, чтобы данные были не пустыми
 //if (inputLine != null)
 //{
-    //    //Создаем массив с днями недели
+
+//ВАРИАНТ С МАССИВОМ
+
+    //Создаем массив с днями недели
     //    string[] dayOfWeek = new string[7];
     //    dayOfWeek[0] = "понедельник";
     //    dayOfWeek[1] = "вторник";
@@ -37,9 +43,12 @@ if (num1Line != null) ;
     //    dayOfWeek[4] = "пятница";
     //    dayOfWeek[5] = "суббота";
     //    dayOfWeek[6] = 
-//    //Находим название дня недели по введенному номеру
+    //Находим название дня недели по введенному номеру
     //    string outDayOfWeek = dayOfWeek[inputNumber-1];
     //string outDayOfWeek = string.Empty;
+
+//ВАРИАНТ С МЕТОДОМ
+
     // switch (inputNumber)
     // {
     //     case 1: outDayOfWeek = "понедельник"; break;
@@ -51,6 +60,8 @@ if (num1Line != null) ;
     //     case 7: outDayOfWeek = "воскресенье"; break;
     //     default: outDayOfWeek = "это не день недели!"; break;
     // }
+
+// ВАРИАНТ С ФУНКЦИЕЙ ОС
 
 //    string outDayOfWeek = System.Globalization.CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetDayName((DayOfWeek)Enum.GetValues(typeof(DayOfWeek)).GetValue(inputNumber));
 
