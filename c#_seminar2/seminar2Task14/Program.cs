@@ -3,10 +3,7 @@
 Console.Write ("Введите число: ");
 int numA = int.Parse(Console.ReadLine()??"0");
 
-int numR1 = numA%7;
-int numR2 = numA%23;
-
-if (numR1==0 && numR2==0)
+if (numA%7==0 && numA%23==0)
 {
     Console.WriteLine("Число кратно 7 и 23");
 }
