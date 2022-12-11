@@ -6,9 +6,9 @@ int ReadData(string msg) // input data method
     return int.Parse(Console.ReadLine() ?? "0");
 }
 
-int quat = ReadData("Введите пятизначное число: ");
+int inputNumber = ReadData("Введите пятизначное число: "); // data entry prompt
 
-var palindromHashDict = new Dictionary<int, int>();
+Dictionary<int,int> palindromHashDict = new Dictionary<int, int>(); // dictionary init
 
 void FillDictionary()   // fill dictionary with palindrom hashes method
 {
@@ -27,14 +27,14 @@ void PrintDictionary()  // print dictionary method (for test only)
     }
 }
 
-FillDictionary();
-//PrintDictionary();
+FillDictionary(); // filling dictionary via method
+//PrintDictionary(); // for test only
 
-if (palindromHashDict.ContainsValue((quat/1000)*100+quat%100) == true)  // check input hash via dictionary
+if (palindromHashDict.ContainsValue((inputNumber/1000)*100+inputNumber%100) == true)  // check inputNumber hash via dictionary
 {
-    Console.WriteLine ("Введенное число является палиндромом");
+    Console.WriteLine ("Введенное число "+inputNumber+" - палиндром"); // output if TRUE
 }
 else
 {
-    Console.WriteLine ("Введенное число не является палиндромом");
+    Console.WriteLine ("Введенное число "+inputNumber+" - не палиндром"); // output if FALSE
 }
