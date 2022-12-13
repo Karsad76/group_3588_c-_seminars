@@ -26,7 +26,7 @@ void FillArray(int[] collection) // random fill array method
     int lenght = collection.Length;
     int index = 0;
     int min = collection[0];
-    int max = collection[1];
+    int max = collection[1] + 1;
 
     while (index < lenght)
     {
@@ -39,11 +39,13 @@ void PrintArray(int[] col)      // print array method
 {
     int count = col.Length;
     int position = 0;
-    while (position < count)
+    Console.Write("[");
+    while (position < (count - 1))
     {
-        Console.Write(col[position]); Console.Write(" ");
+        Console.Write(col[position]); Console.Write(", ");
         position++;
     }
+    Console.Write((col[count - 1]) + "]");
 }
 
 void SortSelectionArray(int[] arr)      // sort array method
@@ -63,18 +65,17 @@ void SortSelectionArray(int[] arr)      // sort array method
     }
 }
 
-string inputLine = ReadFromConsole("Введите параметры массива в виде (длина, минЗначение, максЗначение): ");   //data entry prompt
+string inputLine = ReadFromConsole("Введите параметры для генерации массива в виде (длина, минЗначение, максЗначение): ");   //data entry prompt
 int[] array = CreateArray(inputLine); // generate array
 FillArray(array); // fill array with random values
 
 Console.Clear();
-Console.WriteLine("Запрошенный массив:");
-Console.WriteLine("===========================================================");
+Console.Write("Сгенерированный массив: ");
 PrintArray(array);
+Console.WriteLine();
+Console.WriteLine();
 
-Console.WriteLine();
-Console.WriteLine();
 SortSelectionArray(array); // sorting array
-Console.WriteLine("Отсортированный массив:");
-Console.WriteLine("===========================================================");
+Console.Write("Отсортированный массив: ");
 PrintArray(array);
+Console.WriteLine();

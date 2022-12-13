@@ -15,35 +15,25 @@ void PrintData(string msg)   // print data method
 
 double ParsingStringToNumAndCalculate(string text) // parsing input string to number and calculate method
 {
-    text = text.Replace("(", "").Replace(")","");
+    text = text.Replace("(", "").Replace(")", "");
     string[] digits = text.Split(" ");
 
     double a = double.Parse(digits[0]);
     double b = double.Parse(digits[2]);
     double result = 0;
 
-    if (digits[1] == "+")
+    if (b == 0 && digits[1] == "/") Console.WriteLine("Недопустимая операция: деление на 0");
+    switch (digits[1])
     {
-        result = (a + b);
+        case "+": return result = (a + b);
+        case "-": return result = (a - b);
+        case "*": return result = (a * b);
+        case "/": return result = (a / b);
+        case "^": return result = Math.Pow(a, b);
+        default:
+            Console.WriteLine("Недопустимая операция");
+            return 0;
     }
-    if (digits[1] == "-")
-    {
-        result = (a - b);
-    }
-
-    if (digits[1] == "*")
-    {
-        result = (a * b);
-    }
-if (digits[1] == "/")
-    {
-        result = (a / b);
-    }
-if (digits[1] == "^")
-    {
-        result = Math.Pow(a,b);
-    }
-    return result;
 }
 
 string inputLine = ReadFromConsole("Введите выражение вида (a + b), где действием могут быть (+ - * / ^): ");   // data entry prompt
