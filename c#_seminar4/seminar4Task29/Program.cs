@@ -1,5 +1,8 @@
 ﻿// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
+int minValueForRandom = 0;
+int maxValueForRandom = 0;
+
 string ReadFromConsole(string msg)    // input data method
 {
     Console.Write(msg);
@@ -13,24 +16,22 @@ int[] CreateArray(string text) // parsing input string to number and calculate m
     string[] digits = text.Split(",");
 
     int arrLenght = int.Parse(digits[0]);
-    int minValue = int.Parse(digits[1]);
-    int maxValue = int.Parse(digits[2]);
+    minValueForRandom = int.Parse(digits[1]);
+    maxValueForRandom = int.Parse(digits[2]);
     int[] arr = new int[arrLenght];
-    arr[0] = minValue;
-    arr[1] = maxValue;
+    // arr[0] = minValue;
+    // arr[1] = maxValue;
     return arr;
 }
 
-void FillArray(int[] collection) // random fill array method
+void FillArray(int[] collection, int minValue, int maxValue) // random fill array method
 {
     int lenght = collection.Length;
     int index = 0;
-    int min = collection[0];
-    int max = collection[1] + 1;
-
+    
     while (index < lenght)
     {
-        collection[index] = new Random().Next(min, max);
+        collection[index] = new Random().Next(minValue, maxValue);
         index++;
     }
 }
@@ -67,15 +68,17 @@ void SortSelectionArray(int[] arr)      // sort array method
 
 string inputLine = ReadFromConsole("Введите параметры для генерации массива в виде (длина, минЗначение, максЗначение): ");   //data entry prompt
 int[] array = CreateArray(inputLine); // generate array
-FillArray(array); // fill array with random values
+FillArray(array, minValueForRandom, maxValueForRandom); // fill array with random values
 
 Console.Clear();
-Console.Write("Сгенерированный массив: ");
+
+Console.Write("Сгенерированный массив: ");  //data output
 PrintArray(array);
 Console.WriteLine();
 Console.WriteLine();
 
 SortSelectionArray(array); // sorting array
-Console.Write("Отсортированный массив: ");
+
+Console.Write("Отсортированный массив: ");  //data output
 PrintArray(array);
 Console.WriteLine();

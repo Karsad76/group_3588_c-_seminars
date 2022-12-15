@@ -37,5 +37,5 @@ double ParsingStringToNumAndCalculate(string text) // parsing input string to nu
 }
 
 string inputLine = ReadFromConsole("Введите выражение вида (a + b), где действием могут быть (+ - * / ^): ");   // data entry prompt
-PrintData((inputLine) + " = " + ParsingStringToNumAndCalculate(inputLine));
+PrintData((inputLine) + " = " + ParsingStringToNumAndCalculate(inputLine));     // output result
 
