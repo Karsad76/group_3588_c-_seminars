@@ -14,39 +14,16 @@ int[] collection2 = (int[])collection.Clone();      // (for the purity of the ex
 Console.Clear();
 Console.WriteLine("Исходный массив");
 Console.WriteLine("===============");
-PrintArray(collection); Console.WriteLine(); Console.WriteLine();
-
-Stopwatch sw1 = new Stopwatch();                                                // stopwatch #1 init
-sw1.Start();                                                                    // making measurement start
-BubbleSortArray(collection);
-sw1.Stop();                                                                     // making measurement stop
-Console.WriteLine("Массив, отсортированный методом \"пузырька\"");
-Console.WriteLine("==========================================");
-PrintArray(collection); Console.WriteLine();
-Console.WriteLine($"Время выполнения (метод \"пузырька\"): {sw1.Elapsed}");     // print measurement results
+PrintArray(collection);
 Console.WriteLine(); Console.WriteLine();
 
-Stopwatch sw2 = new Stopwatch();                                                // stopwatch #2 init
-sw2.Start();                                                                    // making measurement start
-InsertionSortArray(collection1);
-sw2.Stop();                                                                     // making measurement stop
-Console.WriteLine("Массив, отсортированный методом вставки");
-Console.WriteLine("=======================================");
-PrintArray(collection1); Console.WriteLine();
-Console.WriteLine($"Время выполнения (метод вставки): {sw2.Elapsed}");          // print measurement results
-Console.WriteLine(); Console.WriteLine();
-
-Stopwatch sw3 = new Stopwatch();                                                // stopwatch #3 init
-sw3.Start();                                                                    // making measurement start
-CountingSortArray(collection2);
-sw3.Stop();                                                                     // making measurement stop
-Console.WriteLine("Массив, отсортированный методом подсчета");
-Console.WriteLine("========================================");
-PrintArray(collection2); Console.WriteLine();
-Console.WriteLine($"Время выполнения (метод подсчета): {sw3.Elapsed}");         // print measurement results
-Console.WriteLine();
+StopWatchPerfTest("метод пузырька", collection);        // test performance and print result
+StopWatchPerfTest("метод вставки", collection1);
+StopWatchPerfTest("метод подсчета", collection2);
 
 PrintData("Разница между максимальным и минимальным элементом массива: ", (collection[collection.Length - 1] - collection[0]));
+Console.WriteLine();
+
 
 // METHODS
 int[] GenArray(int lenght)  // array generator with given lenght
@@ -148,7 +125,24 @@ void PrintData(string res, int value)   // print data method
     Console.WriteLine(res + value);
 }
 
-
+void StopWatchPerfTest(string msg, int[] arr)   // test performance method
+{
+    Stopwatch sw1 = new Stopwatch();                                                // stopwatch #1 init
+    sw1.Start();                                                                    // making measurement start
+    switch (msg)
+    {
+        case "метод пузырька": BubbleSortArray(arr); break;
+        case "метод вставки": InsertionSortArray(arr); break;
+        case "метод подсчета": CountingSortArray(arr); break;
+        default: break;
+    }
+    sw1.Stop();                                                                     // making measurement stop
+    Console.WriteLine("Отсортированный массив (" + msg + ")");
+    Console.WriteLine("=======================================");
+    PrintArray(arr); Console.WriteLine("---------------------------------------");
+    Console.WriteLine("Время выполнения (" + msg + "): " + sw1.Elapsed);     // print measurement results
+    Console.WriteLine(); Console.WriteLine();
+}
 
 
 
