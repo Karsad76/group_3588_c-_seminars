@@ -27,8 +27,17 @@ long RecPow(int num1, int num2) // method for pow via recursion
     return num1 * RecPow(num1, num2 - 1);
 }
 
-long MyPow(int num1, int num2)  // method for pow via recursion
+long MyPow(int a, int b)  // method for pow via recursion
 {
-    if (num2 == 2) return num1 * num1;
-    return MyPow(num1, num2 / 2) * MyPow(num1, num2 / 2);
+    if (b == 2) return a * a;
+    if (b == 1) return a;
+
+    if (b % 2 == 0)
+    {
+        return MyPow(a, b / 2) * MyPow(a, b / 2);
+    }
+    else
+    {
+        return MyPow(a, b / 2) * MyPow(a, (b / 2)+1);
+    }
 }
