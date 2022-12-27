@@ -3,7 +3,7 @@
 int m = ReadData("Введите число: ");
 int n = ReadData("Введите число: ");
 
-string resultLine = m < n ? ReccurentLineGenerator(m, n) : ReccurentLineGenerator(n, m);
+string resultLine = m < n ? RecLineGenerator(m, n) : RecLineGenerator(n, m);
 PrintData(resultLine);
 
 // METHODS
@@ -18,7 +18,7 @@ void PrintData(string msg)   // print data method
     Console.WriteLine(msg);
 }
 
-string ReccurentLineGenerator(int m, int n) // method for gathering string via recursion
+string RecLineGenerator(int m, int n) // method for gathering string via recursion
 {
     string outRes = string.Empty;
 
@@ -28,7 +28,7 @@ string ReccurentLineGenerator(int m, int n) // method for gathering string via r
     }
     else
     {
-        string outLine = m + " " + ReccurentLineGenerator(m + 1, n);
+        string outLine = m + " " + RecLineGenerator(m + 1, n);
         return outLine;
     }
 }
